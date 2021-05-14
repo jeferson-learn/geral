@@ -9,8 +9,9 @@ import java.util.Locale;
 public class Hora {
 
     public static void main(String[] args) {
-//        horaAtual();
+        horaAtual();
 //        dataHora();
+//        hora();
     }
 
     private static void dataHora() {
@@ -43,5 +44,17 @@ public class Hora {
         String datas = new SimpleDateFormat("dd/MM/yyyy").format(dataHoraAtuals);
         String horas = new SimpleDateFormat("HH:mm:ss").format(dataHoraAtuals);
         System.out.println("Data: " + datas + " Hora: " + horas);
+    }
+
+    private static void hora(){
+        Calendar calendar = Calendar.getInstance();
+        Integer hora1 = calendar.get(Calendar.HOUR);
+        Integer hora2 = calendar.get(Calendar.HOUR_OF_DAY);
+        Integer min = calendar.get(Calendar.MINUTE);
+        Integer seg = calendar.get(Calendar.SECOND);
+        System.out.println("Horario1: " + hora1);
+        System.out.println("Horario2: " + hora2);
+        System.out.println("Min: " + min);
+        System.out.println("Seg: " + seg);
     }
 }
