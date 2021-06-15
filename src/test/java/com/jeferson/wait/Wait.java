@@ -42,4 +42,14 @@ public class Wait {
             return element;
         }
     }
+
+    public Boolean waitStaleness(WebElement element){
+        WebDriverWait wait = new WebDriverWait(driver, 20);
+        return wait.until(ExpectedConditions.stalenessOf(element));
+    }
+
+    public Alert waitAlert(){
+        WebDriverWait wait = new WebDriverWait(driver, 20);
+        return wait.until(ExpectedConditions.alertIsPresent());
+    }
 }
