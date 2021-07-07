@@ -1,6 +1,7 @@
 package com.jeferson.tempos.calendarios;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -8,15 +9,52 @@ import java.util.Locale;
 
 public class DiaMesAno {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
 //        diaAtual();
 //        obterDiaAtual();
 //        obterMesAtual();
 //        obterAnoAtual();
-        tiposLocalData();
+//        tiposLocalData();
+        diaDaSemana();
     }
 
-    private static void tiposLocalData() {
+    private static void diaDaSemana() throws ParseException {
+        int dia = 07;
+        int mes = 07;
+        int ano = 2021;
+        SimpleDateFormat fmt = new SimpleDateFormat("dd/MM/yyyy");
+        String dataFormatada = String.format("%s/%s/%s", dia, mes, ano);
+
+        Date date = fmt.parse(dataFormatada);
+
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+
+        switch (cal.get(Calendar.DAY_OF_WEEK)) {
+            case 1:
+                System.out.println("DOMINGO");
+                break;
+            case 2:
+            System.out.println("SEGUNDA");
+                break;
+            case 3:
+            System.out.println("TERÇA");
+                break;
+            case 4:
+            System.out.println("QUARTA");
+                break;
+            case 5:
+            System.out.println("QUINTA");
+                break;
+            case 6:
+            System.out.println("SEXTA");
+                break;
+            case 7:
+            System.out.println("SABADO");
+                break;
+        }
+    }
+        private static void tiposLocalData() {
         Date d = new Date();
         DateFormat df1 = DateFormat.getDateInstance(DateFormat.MEDIUM, new Locale("en", "US"));
         System.out.println("en: " + df1.format(d));
