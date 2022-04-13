@@ -13,6 +13,7 @@ public class Assertions {
     public Assertions(WebDriver driver) {
         this.driver = driver;
     }
+
     public void assertionsEquals() {
         WebElement element = driver.findElement(By.id("fulano"));
         String texto = "frase";
@@ -20,10 +21,17 @@ public class Assertions {
         org.junit.jupiter.api.Assertions.assertEquals(texto, element.getText());
     }
 
-    /** Deve import hamcrest **/
+    /** Deve import hamcrest (junit4) **/
     public void assertionsContainsString() {
         WebElement element = driver.findElement(By.id("fulano"));
         String texto = "frase";
         assertThat(element.getText(), containsString(texto));
+    }
+
+    /** TestNG **/
+    public void assertAssertTrueContains() {
+        WebElement element = driver.findElement(By.id("fulano"));
+        String nameTitle = element.getText();
+//        Assert.assertTrue(nameTitle.contains("SHOPPING-CART SUMMARY"));
     }
 }
