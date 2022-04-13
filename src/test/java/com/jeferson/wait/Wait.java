@@ -20,6 +20,11 @@ public class Wait {
         driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
     }
 
+    public WebElement waitPresenceElementLocated(By by){
+        WebDriverWait wait = new WebDriverWait(driver, 20);
+        return wait.until(ExpectedConditions.presenceOfElementLocated(by));
+    }
+
     public WebElement waitVisibilityElement(By by){
         WebDriverWait wait = new WebDriverWait(driver, 20);
         return wait.until(ExpectedConditions.visibilityOfElementLocated(by));
@@ -28,11 +33,6 @@ public class Wait {
     public WebElement waitElementToBeClickable(By by){
         WebDriverWait wait = new WebDriverWait(driver, 20);
         return wait.until(ExpectedConditions.elementToBeClickable(by));
-    }
-
-    public Alert waitElementAlert(){
-        WebDriverWait wait = new WebDriverWait(driver, 20);
-        return wait.until(ExpectedConditions.alertIsPresent());
     }
 
     public WebElement waitLoadElement(WebElement element) {
@@ -48,8 +48,9 @@ public class Wait {
         return wait.until(ExpectedConditions.stalenessOf(element));
     }
 
-    public Alert waitAlert(){
+    public Alert waitElementAlert(){
         WebDriverWait wait = new WebDriverWait(driver, 20);
         return wait.until(ExpectedConditions.alertIsPresent());
     }
+
 }
