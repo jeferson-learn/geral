@@ -7,12 +7,12 @@ public class BaseTest {
 
     @BeforeMethod
     public static void setUp() {
-        ReportFw.configurarExtentReport();
+        ReportFw1.configurarExtentReport();
     }
 
     @AfterMethod
     public static void tearDown() {
-        ReportFw.closeReport();
+        ReportFw1.closeReport();
     }
 
 }
